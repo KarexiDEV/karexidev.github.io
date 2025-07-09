@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <!-- Kani Site Ayarları -->
+  <title>Kani - Giriş</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="icon" href="https://cdn.glitch.global/032f4dc9-9f2a-40d0-a7ec-c97d19ceb395/kanisitelogokucuk.png?v=1705624309693"/>
+  <!--  Kani -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kani" />
+  <meta name="og:description" content="Fuck everything just focus money" />
+  <meta property="og:color" content="#227dfa" />
+  <meta property="og:image" content="https://cdn.glitch.global/032f4dc9-9f2a-40d0-a7ec-c97d19ceb395/kanisitelinklogo.png?v=1705625617953"/>
+  <meta name="theme-color" content="#227dfa" />
+  <meta http-equiv="refresh" content="4;url=/anasayfa">
+  <!--  Kani Ekstra -->
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="pragma" content="no-cache">
+  <!-- Kani Site Ayarları -->
+  <script> document.addEventListener("contextmenu", function(e){ e.preventDefault(); }, false); </script>
+  <script>document.onkeypress = document.onmousedown = document.onkeydown = function (event) { event = (event || window.event); if (event.keyCode == 123) { return false; } }</script>
+  <style>
+   body { background-color: #111; color: #227dfa; height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none; }
+   p { margin: 0; font-family: "Josefin Sans", Helvetica, "Segoe UI", sans-serif; font-weight: 200; font-size: 5em; line-height: 1; text-align: center; background: -webkit-linear-gradient(#227dfa, #34a0ff, #609fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 2px 2px 16px #227dfa; animation: glow 3s linear infinite; }
+   @keyframes glow { 0% { text-shadow: 0px 0px 15px #227dfa; } 55% { text-shadow: 0px 0px 10px #333, 0px 0px 10px rgba(51, 51, 51, 0.3); } 60% { text-shadow: 0px 0px 20px #222, 0px 0px 30px rgba(34, 34, 34, 0.3); } 75% { text-shadow: 0px 0px 20px #227dfa, 0px 0px 30px rgba(34, 34, 34, 0.3); } 100% { text-shadow: 0px 0px 15px #227dfa; } }
+   .spinner-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; }
+   .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-bottom: 4px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 2s ease-in-out infinite; }
+   @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+   .spinner-text { font-size: 20px; color: #f3f3f3; margin-top: 20px; text-align: center; }
+   .sayi { color: green; }
+  </style>
+ </head>
+   <body>
+     <script> setTimeout(function () { window.location.href = "/anasayfa"; }, 5000); </script>   
+      <script> setTimeout(function() { document.getElementById("yazi").innerHTML = "Siteye girişiniz sağlanamadı lütfen sayfayı yenileyiniz."; document.getElementById("yazi").style.color = "red"; }, 10000); </script>
+       <div class="spinner-container">
+       <p>K</p>
+       <div id="yazi" class="spinner-text">Güvenli bir şekilde siteye yönlendiriliyorsunuz...</div>
+     </div>
+   </body>
+</html>
