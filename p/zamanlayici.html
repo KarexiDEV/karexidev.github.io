@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--  Kani Site -->
+    <meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Kani - Zamanlayıcı</title>
+    <link rel="icon" href="https://cdn.glitch.global/032f4dc9-9f2a-40d0-a7ec-c97d19ceb395/kanisitelogokucuk.png?v=1705624309693"/>
+    <!--  Kani Link -->
+    <meta property="og:type"      content="website" /> 
+    <meta property="og:title"     content="Kani - Zamanlayıcı" />
+    <meta name="og:description"   content="Zamanlayıcı" />
+    <meta property="og:color"     content="#227dfa" />
+    <meta property="og:image"     content="https://cdn.glitch.global/032f4dc9-9f2a-40d0-a7ec-c97d19ceb395/kanisitelinklogo.png?v=1705625617953">
+    <meta name="theme-color"      content="#227dfa"> 
+    <!--  Kani Ekstra -->
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://kit.fontawesome.com/a805a9455e.js" crossorigin="anonymous"></script>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    #ustCizgi {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        background-color: #00008B;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    #ustCizgiText {
+        font-size: 20px;
+        color: #ffffff;
+        margin-left: 16px;
+    }
+
+    .container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    label, input, button {
+        margin: 5px;
+    }
+
+    input[type="number"] {
+        width: 50px;
+        padding: 5px;
+    }
+
+    button {
+        padding: 8px 15px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #2980b9;
+    }
+
+    #countdown-container {
+        text-align: center;
+        margin-top: 20px;
+       flex-direction: row;
+    }
+
+    #countdown {
+        font-size: 36px;
+        color: #e74c3c;
+        margin-top: 10px;
+    }
+
+    .duration-buttons {
+        margin-top: 20px;
+       text-align: center;
+    }
+
+    .duration-buttons button {
+        margin: 5px;
+        background-color: #27ae60;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 5px 10px;
+        transition: background-color 0.3s;
+    }
+
+    .duration-buttons button:hover {
+        background-color: #219651;
+    }
+    footer {
+  text-align: center;
+  margin: 12px;
+  color: black;
+}
+</style>
+</head>
+<body>
+    <div id="ustCizgi">
+      <span class="animate__animated animate__flip" id="ustCizgiText"><b>Kani Online</b> <i class="fas fa-user-circle"></i> </span>
+      <button id="anaSayfaLink" onclick="redirectToAnaSayfa()">Diğer Projelerim</button>
+    </div>
+    <h1>Zamanlayıcı</h1>
+    <div id="countdown">00:00:00</div>
+    <div class="duration-buttons">
+        <button data-duration="300" onclick="setCountdownFromButton(this)">5 Dakika</button>
+        <button data-duration="600" onclick="setCountdownFromButton(this)">10 Dakika</button>
+        <button data-duration="900" onclick="setCountdownFromButton(this)">15 Dakika</button>
+        <button data-duration="1800" onclick="setCountdownFromButton(this)">30 Dakika</button>
+        <button data-duration="3600" onclick="setCountdownFromButton(this)">1 Saat</button>
+        <button data-duration="7200" onclick="setCountdownFromButton(this)">2 Saat</button>
+        <button data-duration="10800" onclick="setCountdownFromButton(this)">3 Saat</button>
+        <button data-duration="14400" onclick="setCountdownFromButton(this)">4 Saat</button>
+        <button data-duration="18000" onclick="setCountdownFromButton(this)">5 Saat</button>
+    </div>
+    <div id="countdown-container">
+        <div>
+            <label for="days">Gün:</label>
+            <input type="number" id="days" value="0" oninput="clearIfZero(this); removeLeadingZero(this);">
+            <label for="hours">Saat:</label>
+            <input type="number" id="hours" value="0" oninput="clearIfZero(this); removeLeadingZero(this);">
+            <label for="minutes">Dakika:</label>
+            <input type="number" id="minutes" value="0" oninput="clearIfZero(this); removeLeadingZero(this);">
+        </div>
+        <div>
+            <button onclick="setCountdown()">Alarmı Ayarla</button>
+            <button onclick="resetCountdown()">Sıfırla</button>
+        </div>
+    </div>
+    <script>
+  let countdownInterval;
+
+function startCountdown(timeInSeconds) {
+    clearInterval(countdownInterval);
+
+    countdownInterval = setInterval(() => {
+        if (timeInSeconds <= 0) {
+            clearInterval(countdownInterval);
+            updateCountdownDisplay(0);
+            alert('Alarm! Süre doldu.');
+            return;
+        }
+
+        timeInSeconds--;
+        updateCountdownDisplay(timeInSeconds);
+    }, 1000);
+}
+
+function updateCountdownDisplay(timeInSeconds) {
+    const days = Math.floor(timeInSeconds / (24 * 60 * 60));
+    const hours = Math.floor((timeInSeconds % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((timeInSeconds % (60 * 60)) / 60);
+    const seconds = timeInSeconds % 60;
+
+    const formattedTime = `${formatTimeComponent(days)}:${formatTimeComponent(hours)}:${formatTimeComponent(minutes)}:${formatTimeComponent(seconds)}`;
+    document.getElementById('countdown').textContent = formattedTime;
+}
+
+function formatTimeComponent(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
+function setCountdown(button) {
+    const daysInput = document.getElementById('days');
+    const hoursInput = document.getElementById('hours');
+    const minutesInput = document.getElementById('minutes');
+
+    const totalSeconds = (parseInt(daysInput.value) * 24 * 60 * 60) + (parseInt(hoursInput.value) * 60 * 60) + (parseInt(minutesInput.value) * 60);
+    
+    startCountdown(totalSeconds);
+}
+
+function resetCountdown() {
+    clearInterval(countdownInterval);
+    document.getElementById('countdown').textContent = '00:00:00';
+    document.getElementById('days').value = '0';
+    document.getElementById('hours').value = '0';
+    document.getElementById('minutes').value = '0';
+}
+
+// Sayı girişi yapıldığında sıfırları temizleme
+function clearIfZero(inputElement) {
+    if (inputElement.value === '0') {
+        inputElement.value = '';
+    }
+}
+
+// Sayı girişi yapıldığında başında sıfır varsa silme
+function removeLeadingZero(inputElement) {
+    if (inputElement.value.length === 2 && inputElement.value[0] === '0') {
+        inputElement.value = inputElement.value[1];
+    }
+}
+
+// Butonlara tıklanınca süreyi fonksiyona geçirme
+function setCountdownFromButton(button) {
+    const timeInSeconds = parseInt(button.getAttribute('data-duration'));
+    startCountdown(timeInSeconds);
+}
+
+function redirectToAnaSayfa() {
+  window.location.href = "https://kani.pro/projeler";
+}
+  </script>
+  <br><br>
+    <footer class="footer">
+        &copy; 2024 Kani PRO <br>
+        <i class="fab fa-php"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3"></i>
+      </footer>
+</body>
+</html>
