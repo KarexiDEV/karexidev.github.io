@@ -42,12 +42,7 @@
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        @keyframes glow {
-            0% { text-shadow: 0 0 15px #227dfa; }
-            50% { text-shadow: 0 0 25px #34a0ff; }
-            100% { text-shadow: 0 0 15px #227dfa; }
-        }
-
+        /* Yükleme İkonu (Spinner) */
         .spinner {
             border: 4px solid rgba(243, 243, 243, 0.2);
             border-top: 4px solid #3498db;
@@ -55,7 +50,7 @@
             width: 50px;
             height: 50px;
             animation: spin 1.5s linear infinite;
-            margin-top: 30px;
+            margin-bottom: 40px; /* Yazı ile arasına boşluk koyar */
         }
 
         @keyframes spin {
@@ -63,12 +58,24 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Açıklama Metni */
+        /* Yönlendirme Metni (Glow Efektli) */
         .redirect-text {
-            font-size: 20px;
-            color: #f3f3f3;
-            margin-top: 20px;
+            font-size: 2.5em; /* KANIST yazısından daha küçük */
+            font-weight: 200;
             text-align: center;
+            line-height: 1.2;
+            background: -webkit-linear-gradient(#227dfa, #34a0ff, #609fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 16px #227dfa;
+            animation: glow 3s linear infinite;
+        }
+        
+        /* Glow Animasyonu */
+        @keyframes glow {
+            0% { text-shadow: 0 0 15px #227dfa; }
+            50% { text-shadow: 0 0 25px #34a0ff; }
+            100% { text-shadow: 0 0 15px #227dfa; }
         }
     </style>
 </head>
@@ -76,19 +83,23 @@
 <body>
 
     <div class="spinner"></div>
-    <div id="redirect-message" class="redirect-text">Instagram profiline güvenle yönlendiriliyorsunuz...</div>
+    <div id="redirect-message" class="redirect-text">
+        Instagram profiline <br> güvenle yönlendiriliyorsunuz...
+    </div>
 
     <script>
         // 3 Saniye sonra Instagram'a yönlendir
         setTimeout(function() {
-            window.location.href = "https://karexidev.github.io/r/i";
+            window.location.href = "https://www.instagram.com/kanist6";
         }, 3000);
 
         // 10 saniye içinde yönlendirme olmazsa hata mesajı göster
         setTimeout(function() {
             const messageElement = document.getElementById("redirect-message");
-            messageElement.innerHTML = "Yönlendirme başarısız oldu. Lütfen sayfayı yenileyin.";
-            messageElement.style.color = "red";
+            // Hata durumunda stil resetlenir ve hata mesajı gösterilir
+            messageElement.style.cssText = 'font-size: 22px; color: red; animation: none;';
+            messageElement.innerText = "Yönlendirme başarısız oldu. Lütfen sayfayı yenileyin.";
+            
             // Hata durumunda spinner'ı gizle
             document.querySelector('.spinner').style.display = 'none';
         }, 10000);
