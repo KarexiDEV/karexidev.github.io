@@ -47,32 +47,6 @@
      .frame:hover img { transform: scale(1.2); }
     </style>
     <script> const texts = ['Takdir ediliyorsan değil taklit ediliyorsan başarmışsındır','Korkusu olan saltanat kuramaz','Duygularınızın yargılarınıza karışmasına izin vermeyin','Gerçeğin en kötüsü bile şüpheden iyidir','Burası dünya burada bir şeyler hep yarım kalacak','Huzuru elde etmenin bedeli cesarettir','Denemeyi bırakana kadar, asla başarısız olmuş sayılmazsınız','İyi bir yazılım şarap gibidir zaman alır',"Mantık sizi a'dan b'ye götürür, hayal ise her yere"]; let count = 0; setInterval(() => { const text = texts[count % texts.length]; const currentText = document.querySelector('#text'); currentText.style.opacity = 0; setTimeout(() => { currentText.innerHTML = text; currentText.style.opacity = 1; }, 1); count++; }, 10000); </script>
-    <script>
-        // Tüm kısa linklerin sözlüğü
-        const links = {
-            instagram: "https://instagram.com/KarexiDEVst6",
-            youtube: "https://youtube.com/kullanici_adınız",
-            spotify: "https://open.spotify.com/user/kullanici_adınız",
-            statsfm: "https://stats.fm/kullanici_adınız",
-            steam: "https://steamcommunity.com/id/kullanici_adınız",
-            x: "https://x.com/kullanici_adınız",
-            projeler: "/projeler"  // Bu site içinde kalacaksa
-        };
-
-        // Yönlendirme fonksiyonu
-        function redirectTo(platform) {
-            if (links[platform]) {
-                // Dış linkleri yeni sekmede aç
-                if (links[platform].startsWith('http')) {
-                    window.open(links[platform], '_blank');
-                } 
-                // Site içi linkleri aynı sekmede aç
-                else {
-                    window.location.href = links[platform];
-                }
-            }
-        }
-    </script>
 </head>
 <body>
   <!-- KarexiDEV Site -->
@@ -98,7 +72,7 @@
   </center>
    <script src="assets/js/particles.js"></script>
    <script src="assets/js/app.js"></script>
-   <footer>&copy; 2024 KarexiDEV PRO  <br><i class="fab fa-php"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3"></i></footer>
+   <footer>&copy; 2025 KarexiDEV <br><i class="fab fa-php"></i> <i class="fab fa-js"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3"></i></footer>
 </body>
 </html>
 <!-- KarexiDEV -->
