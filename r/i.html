@@ -8,18 +8,16 @@
     <link rel="icon" href="https://avatars.githubusercontent.com/u/49820754?v=4" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Kanist Instagram" />
+    <meta property="og:title" content="Yönlendiriliyor..." />
     <meta name="og:description" content="Profil sayfasına yönlendiriliyorsunuz..." />
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/49820754?v=4" />
     <meta name="theme-color" content="#227dfa" />
 
     <script>
-        // Sağ tık menüsünü engelle
         document.addEventListener("contextmenu", function(e) {
             e.preventDefault();
         }, false);
 
-        // F12 ve diğer kısayolları engelle
         document.onkeydown = function(event) {
             event = (event || window.event);
             if (event.keyCode == 123) {
@@ -28,79 +26,26 @@
         }
     </script>
 
-    <style>
-        body {
-            background-color: #111;
-            color: #227dfa;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            user-select: none;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-
-        /* Yükleme İkonu (Spinner) */
-        .spinner {
-            border: 4px solid rgba(243, 243, 243, 0.2);
-            border-top: 4px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1.5s linear infinite;
-            margin-bottom: 40px; /* Yazı ile arasına boşluk koyar */
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Yönlendirme Metni (Glow Efektli) */
-        .redirect-text {
-            font-size: 2.5em; /* KANIST yazısından daha küçük */
-            font-weight: 200;
-            text-align: center;
-            line-height: 1.2;
-            background: -webkit-linear-gradient(#227dfa, #34a0ff, #609fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 16px #227dfa;
-            animation: glow 3s linear infinite;
-        }
-        
-        /* Glow Animasyonu */
-        @keyframes glow {
-            0% { text-shadow: 0 0 15px #227dfa; }
-            50% { text-shadow: 0 0 25px #34a0ff; }
-            100% { text-shadow: 0 0 15px #227dfa; }
-        }
-    </style>
+<style> body { background-color: #111; color: #227dfa; height: 100vh; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; user-select: none; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; } .spinner { border: 4px solid rgba(243, 243, 243, 0.2); border-top: 4px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 1.5s linear infinite; margin-bottom: 40px; } @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } .redirect-text { font-size: 1.5em; font-weight: 200; text-align: center; line-height: 1.2; background: -webkit-linear-gradient(#227dfa, #34a0ff, #609fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 2px 2px 16px #227dfa; animation: glow 3s linear infinite; } @keyframes glow { 0% { text-shadow: 0 0 15px #227dfa; } 50% { text-shadow: 0 0 25px #34a0ff; } 100% { text-shadow: 0 0 15px #227dfa; } } </style>
 </head>
 
 <body>
 
     <div class="spinner"></div>
     <div id="redirect-message" class="redirect-text">
-        Instagram profiline <br> güvenle yönlendiriliyorsunuz...
+        Instagram profiline güvenle yönlendiriliyorsunuz...
     </div>
 
     <script>
-        // 3 Saniye sonra Instagram'a yönlendir
         setTimeout(function() {
             window.location.href = "https://www.instagram.com/kanist6";
         }, 3000);
 
-        // 10 saniye içinde yönlendirme olmazsa hata mesajı göster
         setTimeout(function() {
             const messageElement = document.getElementById("redirect-message");
-            // Hata durumunda stil resetlenir ve hata mesajı gösterilir
             messageElement.style.cssText = 'font-size: 22px; color: red; animation: none;';
             messageElement.innerText = "Yönlendirme başarısız oldu. Lütfen sayfayı yenileyin.";
             
-            // Hata durumunda spinner'ı gizle
             document.querySelector('.spinner').style.display = 'none';
         }, 10000);
     </script>
