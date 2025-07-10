@@ -42,27 +42,12 @@
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        /* Ana Başlık Stili (Glow Efekti) */
-        h1 {
-            margin: 0;
-            font-weight: 200;
-            font-size: 5em;
-            line-height: 1;
-            text-align: center;
-            background: -webkit-linear-gradient(#227dfa, #34a0ff, #609fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 16px #227dfa;
-            animation: glow 3s linear infinite;
-        }
-
         @keyframes glow {
             0% { text-shadow: 0 0 15px #227dfa; }
             50% { text-shadow: 0 0 25px #34a0ff; }
             100% { text-shadow: 0 0 15px #227dfa; }
         }
 
-        /* Yükleme İkonu (Spinner) */
         .spinner {
             border: 4px solid rgba(243, 243, 243, 0.2);
             border-top: 4px solid #3498db;
@@ -90,7 +75,6 @@
 
 <body>
 
-    <h1>KANIST</h1>
     <div class="spinner"></div>
     <div id="redirect-message" class="redirect-text">Instagram profiline güvenle yönlendiriliyorsunuz...</div>
 
