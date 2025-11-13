@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KarexiDEV - Full-Stack Geliştirici</title>
+    <link rel="icon" href="https://otokeyboard.com/bereneb/2025/11/kd.png" type="image/png">
+    <style>
+        :root {
+            --renk-arka-plan: #121212;
+            --renk-ikincil-arka-plan: #1E1E1E;
+            --renk-metin: #E0E0E0;
+            --renk-baslik: #FFFFFF;
+            --renk-vurgu: #007BFF;
+            --renk-vurgu-hover: #0056b3;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--renk-arka-plan);
+            color: var(--renk-metin);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        h1, h2, h3 { color: var(--renk-baslik); margin-bottom: 1rem; }
+        a { color: var(--renk-vurgu); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--renk-vurgu-hover); }
+        .vurgu-mavi { color: var(--renk-vurgu); }
+        .navbar {
+            background-color: var(--renk-ikincil-arka-plan);
+            padding: 1rem 0;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--renk-baslik);
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar nav ul {
+            display: flex;
+            list-style: none;
+        }
+        .navbar nav li {
+            margin-left: 1.5rem;
+        }
+        .navbar nav a {
+            font-weight: 500;
+        }
+        .lang-switcher {
+            margin-left: 2rem;
+        }
+        .lang-switcher .lang-btn {
+            font-weight: bold;
+            color: var(--renk-metin);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        .lang-switcher .lang-btn:hover {
+            opacity: 1;
+        }
+        .lang-switcher .lang-btn.active {
+            color: var(--renk-vurgu);
+            opacity: 1;
+        }
+        .lang-switcher span {
+            margin: 0 0.25rem;
+            color: #555;
+            cursor: default;
+        }
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .hero .altyazi { font-size: 1.5rem; color: var(--renk-vurgu); margin-bottom: 2rem; }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--renk-vurgu);
+            color: var(--renk-baslik);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            border: 2px solid var(--renk-vurgu);
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        .cta-button:hover {
+            background-color: var(--renk-vurgu-hover);
+            border-color: var(--renk-vurgu-hover);
+            color: var(--renk-baslik);
+        }
+        .cta-button.cta-secondary {
+            background-color: transparent;
+            color: var(--renk-vurgu);
+            border: 2px solid var(--renk-vurgu);
+        }
+        .cta-button.cta-secondary:hover {
+            background-color: var(--renk-vurgu);
+            color: var(--renk-baslik);
+        }
+        #projeler, #iletisim { padding: 4rem 0; }
+        #projeler h2, #iletisim h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        .proje-listesi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .proje-karti {
+            background-color: var(--renk-ikincil-arka-plan);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .proje-karti:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); }
+        .proje-karti img { width: 100%; height: 200px; object-fit: cover; background-color: #333; }
+        .proje-icerik {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .proje-icerik p { flex-grow: 1; margin-bottom: 1rem; }
+        .proje-icerik h3 { font-size: 1.4rem; }
+        .proje-linkleri { margin-top: auto; }
+        .proje-linkleri a, .proje-linkleri label { margin-right: 1rem; font-weight: bold; }
+        .proje-detay-link {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--renk-vurgu);
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        .proje-detay-link:hover { color: var(--renk-vurgu-hover); }
+        #iletisim .container {
+            text-align: center;
+            max-width: 700px;
+        }
+        #iletisim p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        #iletisim .cta-button {
+            margin: 0;
+        }
+        .modal-tetikleyici { display: none; }
+        .modal-arkaplan {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            cursor: pointer;
+        }
+        .modal-icerik {
+            background: var(--renk-ikincil-arka-plan);
+            border-radius: 8px;
+            padding: 2rem 2.5rem;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            cursor: default;
+        }
+        .modal-icerik h2 { color: var(--renk-vurgu); margin-top: 0; margin-bottom: 1.5rem; border-bottom: 2px solid var(--renk-vurgu); padding-bottom: 0.5rem; }
+        .modal-icerik h3 { margin-top: 1.5rem; border-bottom: 1px solid #444; padding-bottom: 0.5rem; color: var(--renk-baslik); }
+        .modal-icerik p { margin-bottom: 1rem; }
+        .modal-icerik ul { list-style-type: disc; list-style-position: inside; padding-left: 0.5rem; }
+        .modal-icerik li { margin-bottom: 0.75rem; }
+        .modal-icerik code { background-color: #111; border: 1px solid #333; border-radius: 4px; padding: 0.1em 0.4em; font-family: monospace; color: var(--renk-vurgu); font-size: 0.9em; }
+        .modal-kapat {
+            position: absolute;
+            top: 1rem; right: 1.5rem;
+            font-size: 2.5rem;
+            line-height: 1;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .modal-kapat:hover { color: var(--renk-baslik); }
+        .modal-kapat-alt {
+            display: inline-block;
+            border: 1px solid var(--renk-vurgu);
+            color: var(--renk-vurgu);
+            padding: 0.6rem 1.3rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        .modal-kapat-alt:hover {
+            background-color: var(--renk-vurgu);
+            color: var(--renk-baslik);
+        }
+        .modal-tetikleyici:checked + .modal-arkaplan { opacity: 1; visibility: visible; }
+        .modal-tetikleyici:checked + .modal-arkaplan .modal-icerik { transform: scale(1); }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--renk-ikincil-arka-plan);
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+        .sosyal-linkler a {
+            display: inline-flex;
+            align-items: center;
+            font-weight: bold;
+            margin: 0 0.75rem;
+            font-size: 1.1rem;
+        }
+        .sosyal-linkler svg {
+            margin-right: 8px;
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+        .footer p { margin-top: 1rem; font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .altyazi { font-size: 1.2rem; }
+            .navbar .container, .nav-right {
+                flex-direction: column;
+            }
+            .navbar nav ul {
+                margin-top: 1rem;
+                padding-left: 0;
+            }
+            .lang-switcher {
+                margin-top: 0.75rem;
+                margin-left: 0;
+            }
+            .modal-icerik { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Karexi<span class="vurgu-mavi">DEV</span></a>
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <li><a href="#home">Ev</a></li>
+                        <li><a href="#projeler">Projeler</a></li>
+                        <li><a href="#iletisim">İletişim</a></li>
+                    </ul>
+                </nav>
+                <div class="lang-switcher">
+                    <a href="https://karexidev.github.io/" class="lang-btn">ENG</a>
+                    <span>/</span>
+                    <a href="https://karexidev.github.io/tr.html" class="lang-btn active">TR</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Karexi<span class="vurgu-mavi">DEV</span></h1>
+                <p class="altyazi">Full-Stack Geliştirici</p>
+                <p>Windows için otomasyon araçlarından, web tabanlı modern uygulamalara kadar<br>yenilikçi çözümler üreten bir yazılım geliştiriciyim.</p>
+                <br>
+                <a href="#projeler" class="cta-button">Projelerimi Gör</a>
+                <a href="mailto:contactkarexi@gmail.com" class="cta-button cta-secondary">E-posta Gönder</a>
+            </div>
+        </section>
+        <section id="projeler">
+            <div class="container">
+                <h2>Projelerim</h2>
+                <div class="proje-listesi">
+                    <article class="proje-karti">
+                        <img src="https://otokeyboard.com/bereneb/2025/11/c.png" alt="OtoKeyboard Project Banner">
+                        <div class="proje-icerik">
+                            <h3>OtoKeyboard - Auto Keyboard & Macro</h3>
+                            <p>Windows için zaman kazandıran, dijital sürtünmeyi ortadan kaldıran premier oto klavye. Tekrarlayan görevleri tek tuşla aksiyona dönüştürün...</p>
+                            <div class="proje-linkleri">
+                                <label for="modal-otokeyboard" class="proje-detay-link">Detaylar</label>
+                                <a href="https://otokeyboard.com/" target="_blank">Projeyi Görüntüle</a>
+                                <a href="https://github.com/KarexiDEV/OtoKeyboard" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="proje-karti">
+                        <img src="https://otokeyboard.com/bereneb/2025/11/aptk.png" alt="Application Toolkit Pro Banner">
+                        <div class="proje-icerik">
+                            <h3>Application Toolkit Pro</h3>
+                            <p>Yüklü, taşınabilir ve UWP uygulamalarınızı tek bir yerden keşfedin, yönetin ve kaldırın. Application Toolkit Pro ile sisteminize hakim olun.</p>
+                            <div class="proje-linkleri">
+                                <label for="modal-aptk" class="proje-detay-link">Detaylar</label>
+                                <a href="https://applicationtoolkitpro.site/" target="_blank">Projeyi Görüntüle</a>
+                                <a href="https://github.com/KarexiDEV/ApplicationToolkitPro" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="proje-karti">
+                        <img src="https://otokeyboard.com/bereneb/2025/11/aao.png" alt="Online Adam Asmaca Banner">
+                        <div class="proje-icerik">
+                            <h3>Online Adam Asmaca</h3>
+                            <p>Gerçek zamanlı, çok oyunculu online Adam Asmaca oyunu. Özel odalar kurun, herkese açık lobilere katılın ve arkadaşlarınıza meydan okuyun.</p>
+                            <div class="proje-linkleri">
+                                <label for="modal-hangman" class="proje-detay-link">Detaylar</label>
+                                <a href="https://adamasmaca.online/" target="_blank">Projeyi Görüntüle</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="iletisim">
+            <div class="container">
+                <h2>İletişime Geç</h2>
+                <p>Bir sorunuz, proje fikriniz mi var veya sadece bağlantı mı kurmak istiyorsunuz? Benimle iletişime geçmekten çekinmeyin. Yeni fırsatları ve işbirliklerini tartışmaya her zaman açığım.</p>
+                <a href="mailto:contactkarexi@gmail.com" class="cta-button">E-posta Gönder</a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="sosyal-linkler">
+                <a href="https://github.com/KarexiDEV" target="_blank" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://www.instagram.com/karexidev/" target="_blank" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.689.073 4.948.073s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4c2.21 0 4 1.79 4 4s-1.79 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <p>&copy; 2025 KarexiDEV. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+    <input type="checkbox" id="modal-otokeyboard" class="modal-tetikleyici">
+    <div class="modal-arkaplan" id="otokeyboard">
+        <div class="modal-icerik">
+            <label for="modal-otokeyboard" class="modal-kapat">&times;</label>
+            <h2>OtoKeyboard</h2>
+            <p>OtoKeyboard, Windows için zaman kazanmak ve dijital sürtünmeyi ortadan kaldırmak üzere tasarlanmış birinci sınıf oto klavye ve makro aracıdır. Basit metin değişiminin ötesine geçin ve tekrarlayan herhangi bir görevi tek tuşluk bir eyleme dönüştürün. Profesyoneller, oyuncular ve geliştiriciler için nihai üretkenlik yardımcısıdır. Etkileşimli şablonlarla müşteri desteği yanıtlarını otomatikleştirin; mükemmel zamanlanmış makrolarla karmaşık oyun içi kombinasyonları yürütün; veya tüm çalışma ortamınızı tek bir kısayol tuşuyla başlatın.</p>
+            <p>Güçlü motorumuz dinamik değişkenleri (tarihler, pano geçmişi, kullanıcı istemleri) destekler ve insan benzeri yazım için 'Akıllı Gecikme' özelliğine sahiptir, bu da onu her uygulama için güvenli ve etkili kılar. Sorunsuz sistem tepsisi entegrasyonu, otomatik güncellemeler ve çok dilli (EN/TR) arayüzü ile OtoKeyboard, iş akışınızın temel bir parçası olmaya hazır. Günlük görevlerinizde devrim yaratmak için ücretsiz başlayın veya üretkenliğinizde ustalaşmak için PRO lisansıyla tüm özelliklerin kilidini açın.</p>
+            <h3>Kullanım Videosu</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube-nocookie.com/embed/sTvklrTUBTA?si=a1sQKPD-Mk5CwLVr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <h3>Özellikler</h3>
+            <ul>
+                <li><strong>Akıllı Makro Kaydedici:</strong> Kodlama bilgisi olmadan fare ve klavye hareketlerinizi kaydedin. Tıklamalarınızdan karmaşık form doldurma eylemlerine kadar her şeyi öğrenir ve sizin için kusursuzca tekrarlar.</li>
+                <li><strong>Zincirleme Eylemler (Çoklu Makro):</strong> Güçlü, çok adımlı otomasyonlar oluşturmak için basit kısayolları birleştirin. "Bir program aç, 20 saniye bekle, giriş bilgilerini yaz ve Enter'a bas" gibi senaryoları kolayca programlayın.</li>
+                <li><strong>Döngüsel ve Sürekli Görevler:</strong> Eylem zincirlerinizi belirli sayıda tekrarlayın veya durdurulana kadar sonsuz bir döngüde çalıştırın, kesintisiz otomasyon sağlayın.</li>
+                <li><strong>Anında Metin Genişletme:</strong> E-posta adresleri, kod parçacıkları veya mesajlar gibi sık kullandığınız uzun metinlere kısa anahtar kelimeler atayın. Anahtar kelimeyi yazdığınız anda tam metin otomatik olarak görünür.</li>
+                <li><strong>Dinamik Değişkenli Akıllı Metin:</strong> Metninizi her seferinde dinamik ve doğru içerik oluşturmak için <code>{date}</code>, <code>{time}</code>, ve <code>{{window_title}}</code> gibi gerçek zamanlı, otomatik güncellenen bilgilerle donatın.</li>
+                <li><strong>Etkileşimli Giriş İstemleri:</strong> Makrolarınızın yürütme sırasında sizden bir açılır pencerede bilgi istemesi ve bunu otomatik olarak metne eklemesi için <code>{{prompt}}</code> komutunu kullanın.</li>
+                <li><strong>Gelişmiş Pano Yönetimi:</strong> Sadece kopyaladığınız son öğeye değil, <code>{{clipboard:4}}</code> gibi komutlarla pano geçmişinizdeki son 5 öğeye kadar erişin, form doldurma gibi görevleri büyük ölçüde hızlandırın.</li>
+                <li><strong>Rastgele Veri Oluşturma:</strong> Test veya çeşitli yanıtlar için <code>{{rand_num:1:100}}</code> ile sayılar veya <code>{{rand_text:Evet:Hayır}}</code> ile bir listeden seçim yaparak rastgele içerik üretin.</li>
+                <li><strong>Derinlemesine Tuş Kontrolü:</strong> Büyük harf kullanımı için <code>{shift:press}</code> ile bir tuşu basılı tutma ve ardından <code>{shift:release}</code> ile bırakma gibi gelişmiş klavye senaryolarını simüle edin.</li>
+                <li><strong>Zamanlı Tuş Vuruşları ve Duraklamalar:</strong> <code>{w:press:5:s}</code> gibi komutlarla bir tuşun ne kadar süre basılı tutulacağını belirtin veya <code>{sleep:2:s}</code> ile otomasyon adımları arasına hassas duraklamalar ekleyin.</li>
+                <li><strong>Uygulama, Dosya ve Web Sitesi Başlatma:</strong> Herhangi bir programı, dosyayı veya web sitesini tek bir kısayolla anında başlatarak masaüstü karmaşasını temizleyin.</li>
+                <li><strong>Genişletilmiş Sistem Eylemleri:</strong> Bilgisayarı Kapatma, Yeniden Başlatma, Uyku Modu, Kilitleme, Oturumu Kapatma, Hazırda Bekletme ve Geri Dönüşüm Kutusunu Boşaltma dahil olmak üzere kritik sistem görevlerini kısayollarınıza atayın.</li>
+                <li><strong>Hedef Odaklı Pencere:</strong> Metin makrolarınızı belirli bir uygulama penceresine atayın. OtoKeyboard, siz başka bir yerde çalışıyor olsanız bile yazmadan önce pencereyi bulur ve odaklar.</li>
+                <li><strong>Periyodik ve Yinelenen Görevler:</strong> Bir eylemi özel saniye, dakika veya saat aralıklarında otomatik olarak tekrarlanacak şekilde ayarlayın—oyun içi yetenekler veya düzenli raporlama görevleri için mükemmeldir.</li>
+                <li><strong>Ekran Üstü HUD Zamanlayıcı:</strong> Şık, şeffaf bir Ekran Üstü Gösterge (HUD) ile aktif zamanlayıcılarınızı ve zincirleme görevlerinizin ilerlemesini takip edin.</li>
+                <li><strong>Profil Yönetimi (Lisanslı):</strong> Kısayollarınızı 'İş', 'Oyun' veya belirli projeler gibi farklı bağlamlar için ayrı profiller oluşturarak düzenleyin ve aralarında anında geçiş yapın.</li>
+                <li><strong>"İnsan Benzeri" Akıllı Gecikme:</strong> Otomasyonun bir insan tarafından yazılmış gibi daha doğal görünmesini sağlamak için tuş vuruşları arasına rastgele milisaniye gecikmeler ekleyin.</li>
+                <li><strong>Tam Kısayol Kontrolü:</strong> Kısayollarınız üzerinde tam yetkiye sahip olun. Hepsini aynı anda açıp/kapatmak için bir ana anahtar kullanın veya her birini listeden ayrı ayrı yönetin.</li>
+                <li><strong>Sorunsuz Sistem Entegrasyonu:</strong> OtoKeyboard'u başlangıçta otomatik olarak başlatılacak ve sistem tepsisinde gizlice çalışacak şekilde yapılandırın, otomasyonlarınızın her zaman parmaklarınızın ucunda olmasını sağlayın.</li>
+                <li><strong>Otomatik ve Zahmetsiz Güncellemeler:</strong> Uygulama, güncellemeleri otomatik olarak kontrol eder ve yükler, böylece her zaman en son özelliklere ve güvenlik yamalarına zahmetsizce sahip olursunuz.</li>
+            </ul>
+            <label for="modal-otokeyboard" class="modal-kapat-alt">Kapat</label>
+        </div>
+    </div>
+    <input type="checkbox" id="modal-aptk" class="modal-tetikleyici">
+    <div class="modal-arkaplan" id="aptk">
+        <div class="modal-icerik">
+            <label for="modal-aptk" class="modal-kapat">&times;</label>
+            <h2>Application Toolkit Pro</h2>
+            <p>Windows Uygulama Yönetiminiz Üzerinde Tam Kontrol</p>
+            <p>Yüklü, taşınabilir ve UWP uygulamalarınızı tek bir yerden keşfedin, yönetin ve kaldırın. Application Toolkit Pro ile sisteminize hakim olun.</p>
+            <h3>Sisteminizi Derinlemesine İnceleyin ve Optimize Edin</h3>
+            <p>Application Toolkit Pro, standart kaldırıcıların ötesine geçer. Dosya konumlarından kayıt defteri anahtarlarına, sürüm detaylarından dijital imzalara kadar her ayrıntıyı tek bir ekranda sunar. Bilgisayarınızı daha temiz ve hızlı tutmak için bilinçli kararlar verin.</p>
+            <h3>Merkezi Yönetim</h3>
+            <p>Windows geneline dağılmış tüm klasik (Win32), Mağaza (UWP) ve unutulmuş taşınabilir uygulamalarınızı tek bir temiz arayüzde birleştirir. Kaosa son verin, düzenin tadını çıkarın.</p>
+            <h3>Derinlemesine Analiz ve Kontrol</h3>
+            <p>‘Dosya Konumunu Aç’ ve ‘Kayıt Defterinde Aç’ gibi kısayollarla uygulamalarınızın çekirdeğine anında erişin. Gelişmiş ‘Sessiz Kaldır’ özelliği ile hızlı ve zahmetsizce temizlik yapın. Kontrol tamamen sizde.</p>
+            <h3>Derin Temizlik ve Keşif</h3>
+            <p>Klasörlerinizdeki unutulmuş taşınabilir .exe dosyalarını tarayarak standart araçların asla bulamayacağı gizli bloatware'leri keşfedin. Bilgisayarınızda gerçekte ne olduğunu bilin ve değerli disk alanınızı geri kazanın.</p>
+            <label for="modal-aptk" class="modal-kapat-alt">Kapat</label>
+        </div>
+    </div>
+    <input type="checkbox" id="modal-hangman" class="modal-tetikleyici">
+    <div class="modal-arkaplan" id="hangman">
+        <div class="modal-icerik">
+            <label for="modal-hangman" class="modal-kapat">&times;</label>
+            <h2>Online Adam Asmaca</h2>
+            <p>“Online Adam Asmaca”ya hoş geldiniz! Arkadaşlarınızla veya diğer oyuncularla keyifli vakit geçirmek için aşağıdaki adımları takip edebilirsiniz.</p>
+            <h3>1. Lobi Ekranı: Oyuna Giriş</h3>
+            <p>Oyuna başlamak için ana ekranda (Lobi) üç seçeneğiniz vardır:</p>
+            <ul>
+                <li><strong>Oyuncu Adı:</strong> Eğer siteye kayıtlı bir üye iseniz, kullanıcı adınız otomatik olarak alınır. Değilseniz, bir “Oyuncu Adı” girmelisiniz.</li>
+                <li><strong>Oda Kur:</strong> Kendi kurallarınızla yeni bir oyun odası açmanızı sağlar.</li>
+                <li><strong>Odaya Katıl:</strong> Arkadaşınızın verdiği 6 haneli “Oda Kodu”nu girerek odaya katılabilirsiniz.</li>
+                <li><strong>Herkese Açık Odalar:</strong> Lobi ekranında listelenen, o anda aktif olan ve “Herkese Açık” olarak ayarlanmış odalardan birine tıklayarak katılabilirsiniz.</li>
+            </ul>
+            <h3>2. Oda Kurma</h3>
+            <p>“Oda Kur” butonuna tıkladığınızda, oyunun kurallarını siz belirlersiniz:</p>
+            <ul>
+                <li><strong>Maksimum Oyuncu:</strong> Odaya kaç kişinin girebileceği (2-12 kişi).</li>
+                <li><strong>Tur Süresi:</strong> Sırası gelen oyuncunun tahmin yapmak için ne kadar süresi olduğu (Süresiz, 10sn, 30sn vb.). (Not: 2 kişilik odalarda bu ayar otomatik olarak “Süresiz” olur).</li>
+                <li><strong>Tur Sayısı:</strong> Oyunun toplam kaç tur süreceği.</li>
+                <li><strong>Otomatik Kelime Modu:</strong> İşaretlerseniz, kelimeleri sistem otomatik olarak belirler. İşaretlemezseniz (Manuel Mod), odadaki bir oyuncu kelimeyi belirler.</li>
+                <li><strong>Herkese Açık Yap:</strong> İşaretlerseniz, odanız lobi ekranındaki “Herkese Açık Odalar” listesinde görünür.</li>
+            </ul>
+            <h3>3. Oyun Lobisi (Bekleme Ekranı)</h3>
+            <p>Odayı kurduktan veya bir odaya katıldıktan sonra bekleme ekranına gelirsiniz. Oda kodunu (“Kopyala” butonuyla) arkadaşlarınıza gönderebilirsiniz. Oda kurucusu (“Kurucu”), odadaki diğer oyuncuları “At” butonu ile odadan çıkarabilir. Tüm oyuncular hazır olduğunda oyun başlar.</p>
+            <h3>4. Oyunu Başlatma</h3>
+            <p><strong>Otomatik Mod:</strong> Kurucu “Oyunu Şimdi Başlat” butonuna basar. Sistem herkes için rastgele bir kelime seçer ve oyun başlar.</p>
+            <p><strong>Manuel Mod:</strong> Kurucu, ilk turda kelimeyi kimin seçeceğine karar verir. Seçilen oyuncu (“Kelimeyi Veren”), bir “Gizli Kelime” ve “Kategori” belirleyip “Oyunu Başlat” butonuna basar. Diğer oyuncular, kelimeyi veren kişinin oyunu başlatmasını bekler.</p>
+            <h3>5. Oyun Ekranı ve Oynanış</h3>
+            <p>Amaç, 6 hata hakkınız (adam asılmadan) dolmadan kelimeyi bulmaktır. Sırası gelen oyuncu klavyeden bir harf seçer. Doğru tahminde puan kazanılır, yanlış tahminde 6 can hakkından biri gider. Manuel modda "İpucu Verme/İsteme" ve "Yargılama" (pas geçme) gibi özellikler varken, otomatik modda ipucu istendiğinde sistem rastgele bir harf açar.</p>
+            <h3>6. Tur ve Oyun Bitişi</h3>
+            <p>Kelime bulunduğunda veya 6 yanlış hak dolduğunda tur biter. Kurucu yeni turu başlatır. Toplam tur sayısına ulaşıldığında oyun biter ve en yüksek puanlı oyuncu kazanır.</p>
+            <h3>7. Diğer Özellikler</h3>
+            <p>Tepkiler ve Sohbet: Oyun sırasında sağ paneldeki emojilere (👍, 😂 vb.) veya “💬” simgesine tıklayarak hızlı mesajlar gönderebilirsiniz. Ses Kontrol: Sağ üstteki 🔊/🔇 simgesi ile oyun seslerini açıp kapatabilirsiniz.</p>
+            <label for="modal-hangman" class="modal-kapat-alt">Kapat</label>
+        </div>
+    </div>
+    <script>
+        const modalBackdrops = document.querySelectorAll('.modal-arkaplan');
+        modalBackdrops.forEach(backdrop => {
+            backdrop.addEventListener('click', function(event) {
+                if (event.target === this) {
+                    const checkbox = this.previousElementSibling;
+                    if (checkbox && checkbox.classList.contains('modal-tetikleyici')) {
+                        checkbox.checked = false;
+                    }
+                }
+            });
+            const content = backdrop.querySelector('.modal-icerik');
+            if (content) {
+                content.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
