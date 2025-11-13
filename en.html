@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KarexiDEV - Full-Stack Geliştirici</title>
+    <title>KarexiDEV - Full-Stack Developer</title>
     <link rel="icon" href="https://otokeyboard.com/bereneb/2025/11/kd.png" type="image/png">
     <style>
         :root {
@@ -116,8 +116,8 @@
             background-color: var(--renk-vurgu);
             color: var(--renk-baslik);
         }
-        #projeler, #iletisim { padding: 4rem 0; }
-        #projeler h2, #iletisim h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        #projects, #contact { padding: 4rem 0; }
+        #projects h2, #contact h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
         .proje-listesi {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -152,15 +152,15 @@
             margin-right: 1rem;
         }
         .proje-detay-link:hover { color: var(--renk-vurgu-hover); }
-        #iletisim .container {
+        #contact .container {
             text-align: center;
             max-width: 700px;
         }
-        #iletisim p {
+        #contact p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
         }
-        #iletisim .cta-button {
+        #contact .cta-button {
             margin: 0;
         }
         .modal-tetikleyici { display: none; }
@@ -291,15 +291,15 @@
             <div class="nav-right">
                 <nav>
                     <ul>
-                        <li><a href="#home">Ev</a></li>
-                        <li><a href="#projeler">Projeler</a></li>
-                        <li><a href="#iletisim">İletişim</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="lang-switcher">
-                    <a href="https://karexidev.github.io/en" class="lang-btn">ENG</a>
+                    <a href="https://karexidev.github.io/en" class="lang-btn active">ENG</a>
                     <span>/</span>
-                    <a href="https://karexidev.github.io/tr" class="lang-btn active">TR</a>
+                    <a href="https://karexidev.github.io/tr" class="lang-btn">TR</a>
                 </div>
             </div>
         </div>
@@ -308,25 +308,25 @@
         <section class="hero" id="home">
             <div class="container">
                 <h1>Karexi<span class="vurgu-mavi">DEV</span></h1>
-                <p class="altyazi">Full-Stack Geliştirici</p>
-                <p>Windows için otomasyon araçlarından, web tabanlı modern uygulamalara kadar<br>yenilikçi çözümler üreten bir yazılım geliştiriciyim.</p>
+                <p class="altyazi">Full-Stack Developer</p>
+                <p>I am a software developer creating innovative solutions,<br>from automation tools for Windows to modern web applications.</p>
                 <br>
-                <a href="#projeler" class="cta-button">Projelerimi Gör</a>
-                <a href="mailto:contactkarexi@gmail.com" class="cta-button cta-secondary">E-posta Gönder</a>
+                <a href="#projects" class="cta-button">View My Projects</a>
+                <a href="mailto:contactkarexi@gmail.com" class="cta-button cta-secondary">Send an Email</a>
             </div>
         </section>
-        <section id="projeler">
+        <section id="projects">
             <div class="container">
-                <h2>Projelerim</h2>
+                <h2>My Projects</h2>
                 <div class="proje-listesi">
                     <article class="proje-karti">
                         <img src="https://otokeyboard.com/bereneb/2025/11/c.png" alt="OtoKeyboard Project Banner">
                         <div class="proje-icerik">
                             <h3>OtoKeyboard - Auto Keyboard & Macro</h3>
-                            <p>Windows için zaman kazandıran, dijital sürtünmeyi ortadan kaldıran premier oto klavye. Tekrarlayan görevleri tek tuşla aksiyona dönüştürün...</p>
+                            <p>The premier auto keyboard and macro tool for Windows, designed to save you time and eliminate digital friction. Turn repetitive tasks into single-keystroke actions...</p>
                             <div class="proje-linkleri">
-                                <label for="modal-otokeyboard" class="proje-detay-link">Detaylar</label>
-                                <a href="https://otokeyboard.com/" target="_blank">Projeyi Görüntüle</a>
+                                <label for="modal-otokeyboard" class="proje-detay-link">Details</label>
+                                <a href="https://otokeyboard.com/" target="_blank">View Project</a>
                                 <a href="https://github.com/KarexiDEV/OtoKeyboard" target="_blank">GitHub</a>
                             </div>
                         </div>
@@ -335,10 +335,10 @@
                         <img src="https://otokeyboard.com/bereneb/2025/11/aptk.png" alt="Application Toolkit Pro Banner">
                         <div class="proje-icerik">
                             <h3>Application Toolkit Pro</h3>
-                            <p>Yüklü, taşınabilir ve UWP uygulamalarınızı tek bir yerden keşfedin, yönetin ve kaldırın. Application Toolkit Pro ile sisteminize hakim olun.</p>
+                            <p>Discover, manage, and uninstall your installed, portable, and UWP apps from a single place. Master your system with Application Toolkit Pro.</p>
                             <div class="proje-linkleri">
-                                <label for="modal-aptk" class="proje-detay-link">Detaylar</label>
-                                <a href="https://applicationtoolkitpro.site/" target="_blank">Projeyi Görüntüle</a>
+                                <label for="modal-aptk" class="proje-detay-link">Details</label>
+                                <a href="https://applicationtoolkitpro.site/" target="_blank">View Project</a>
                                 <a href="https://github.com/KarexiDEV/ApplicationToolkitPro" target="_blank">GitHub</a>
                             </div>
                         </div>
@@ -347,21 +347,21 @@
                         <img src="https://otokeyboard.com/bereneb/2025/11/aao.png" alt="Online Adam Asmaca Banner">
                         <div class="proje-icerik">
                             <h3>Online Adam Asmaca</h3>
-                            <p>Gerçek zamanlı, çok oyunculu online Adam Asmaca oyunu. Özel odalar kurun, herkese açık lobilere katılın ve arkadaşlarınıza meydan okuyun.</p>
+                            <p>A real-time online multiplayer Hangman game. Create private rooms, join public lobbies, and challenge your friends.</p>
                             <div class="proje-linkleri">
-                                <label for="modal-hangman" class="proje-detay-link">Detaylar</label>
-                                <a href="https://adamasmaca.online/" target="_blank">Projeyi Görüntüle</a>
+                                <label for="modal-hangman" class="proje-detay-link">Details</label>
+                                <a href="https://adamasmaca.online/" target="_blank">View Project</a>
                             </div>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
-        <section id="iletisim">
+        <section id="contact">
             <div class="container">
-                <h2>İletişime Geç</h2>
-                <p>Bir sorunuz, proje fikriniz mi var veya sadece bağlantı mı kurmak istiyorsunuz? Benimle iletişime geçmekten çekinmeyin. Yeni fırsatları ve işbirliklerini tartışmaya her zaman açığım.</p>
-                <a href="mailto:contactkarexi@gmail.com" class="cta-button">E-posta Gönder</a>
+                <h2>Contact Me</h2>
+                <p>Have a question, a project idea, or just want to connect? Feel free to reach out. I'm always open to discussing new opportunities and collaborations.</p>
+                <a href="mailto:contactkarexi@gmail.com" class="cta-button">Send an Email</a>
             </div>
         </section>
     </main>
@@ -377,7 +377,7 @@
                     Instagram
                 </a>
             </div>
-            <p>&copy; 2025 KarexiDEV. Tüm hakları saklıdır.</p>
+            <p>&copy; 2025 KarexiDEV. All rights reserved.</p>
         </div>
     </footer>
     <input type="checkbox" id="modal-otokeyboard" class="modal-tetikleyici">
@@ -385,36 +385,36 @@
         <div class="modal-icerik">
             <label for="modal-otokeyboard" class="modal-kapat">&times;</label>
             <h2>OtoKeyboard</h2>
-            <p>OtoKeyboard, Windows için zaman kazanmak ve dijital sürtünmeyi ortadan kaldırmak üzere tasarlanmış birinci sınıf oto klavye ve makro aracıdır. Basit metin değişiminin ötesine geçin ve tekrarlayan herhangi bir görevi tek tuşluk bir eyleme dönüştürün. Profesyoneller, oyuncular ve geliştiriciler için nihai üretkenlik yardımcısıdır. Etkileşimli şablonlarla müşteri desteği yanıtlarını otomatikleştirin; mükemmel zamanlanmış makrolarla karmaşık oyun içi kombinasyonları yürütün; veya tüm çalışma ortamınızı tek bir kısayol tuşuyla başlatın.</p>
-            <p>Güçlü motorumuz dinamik değişkenleri (tarihler, pano geçmişi, kullanıcı istemleri) destekler ve insan benzeri yazım için 'Akıllı Gecikme' özelliğine sahiptir, bu da onu her uygulama için güvenli ve etkili kılar. Sorunsuz sistem tepsisi entegrasyonu, otomatik güncellemeler ve çok dilli (EN/TR) arayüzü ile OtoKeyboard, iş akışınızın temel bir parçası olmaya hazır. Günlük görevlerinizde devrim yaratmak için ücretsiz başlayın veya üretkenliğinizde ustalaşmak için PRO lisansıyla tüm özelliklerin kilidini açın.</p>
-            <h3>Kullanım Videosu</h3>
+            <p>OtoKeyboard is the premier auto keyboard and macro tool for Windows, designed to save you time and eliminate digital friction. Move beyond simple text replacement and turn any repetitive task into a single-keystroke action. It's the ultimate productivity companion for professionals, gamers, and developers alike. Automate customer support replies with interactive templates; execute complex in-game combos with perfectly timed macros; or launch your entire work environment with one hotkey.</p>
+            <p>Our powerful engine supports dynamic variables (dates, clipboard history, user prompts) and features a 'Smart Delay' for human-like typing, making it safe and effective for any application. With seamless system tray integration, automatic updates, and a multi-language (EN/TR) interface, OtoKeyboard is ready to be a core part of your workflow. Start for free to revolutionize your daily tasks or unlock all features with a PRO license to master your productivity.</p>
+            <h3>Tutorial Video</h3>
             <div class="video-container">
                 <iframe src="https://www.youtube-nocookie.com/embed/sTvklrTUBTA?si=a1sQKPD-Mk5CwLVr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <h3>Özellikler</h3>
+            <h3>Features</h3>
             <ul>
-                <li><strong>Akıllı Makro Kaydedici:</strong> Kodlama bilgisi olmadan fare ve klavye hareketlerinizi kaydedin. Tıklamalarınızdan karmaşık form doldurma eylemlerine kadar her şeyi öğrenir ve sizin için kusursuzca tekrarlar.</li>
-                <li><strong>Zincirleme Eylemler (Çoklu Makro):</strong> Güçlü, çok adımlı otomasyonlar oluşturmak için basit kısayolları birleştirin. "Bir program aç, 20 saniye bekle, giriş bilgilerini yaz ve Enter'a bas" gibi senaryoları kolayca programlayın.</li>
-                <li><strong>Döngüsel ve Sürekli Görevler:</strong> Eylem zincirlerinizi belirli sayıda tekrarlayın veya durdurulana kadar sonsuz bir döngüde çalıştırın, kesintisiz otomasyon sağlayın.</li>
-                <li><strong>Anında Metin Genişletme:</strong> E-posta adresleri, kod parçacıkları veya mesajlar gibi sık kullandığınız uzun metinlere kısa anahtar kelimeler atayın. Anahtar kelimeyi yazdığınız anda tam metin otomatik olarak görünür.</li>
-                <li><strong>Dinamik Değişkenli Akıllı Metin:</strong> Metninizi her seferinde dinamik ve doğru içerik oluşturmak için <code>{date}</code>, <code>{time}</code>, ve <code>{{window_title}}</code> gibi gerçek zamanlı, otomatik güncellenen bilgilerle donatın.</li>
-                <li><strong>Etkileşimli Giriş İstemleri:</strong> Makrolarınızın yürütme sırasında sizden bir açılır pencerede bilgi istemesi ve bunu otomatik olarak metne eklemesi için <code>{{prompt}}</code> komutunu kullanın.</li>
-                <li><strong>Gelişmiş Pano Yönetimi:</strong> Sadece kopyaladığınız son öğeye değil, <code>{{clipboard:4}}</code> gibi komutlarla pano geçmişinizdeki son 5 öğeye kadar erişin, form doldurma gibi görevleri büyük ölçüde hızlandırın.</li>
-                <li><strong>Rastgele Veri Oluşturma:</strong> Test veya çeşitli yanıtlar için <code>{{rand_num:1:100}}</code> ile sayılar veya <code>{{rand_text:Evet:Hayır}}</code> ile bir listeden seçim yaparak rastgele içerik üretin.</li>
-                <li><strong>Derinlemesine Tuş Kontrolü:</strong> Büyük harf kullanımı için <code>{shift:press}</code> ile bir tuşu basılı tutma ve ardından <code>{shift:release}</code> ile bırakma gibi gelişmiş klavye senaryolarını simüle edin.</li>
-                <li><strong>Zamanlı Tuş Vuruşları ve Duraklamalar:</strong> <code>{w:press:5:s}</code> gibi komutlarla bir tuşun ne kadar süre basılı tutulacağını belirtin veya <code>{sleep:2:s}</code> ile otomasyon adımları arasına hassas duraklamalar ekleyin.</li>
-                <li><strong>Uygulama, Dosya ve Web Sitesi Başlatma:</strong> Herhangi bir programı, dosyayı veya web sitesini tek bir kısayolla anında başlatarak masaüstü karmaşasını temizleyin.</li>
-                <li><strong>Genişletilmiş Sistem Eylemleri:</strong> Bilgisayarı Kapatma, Yeniden Başlatma, Uyku Modu, Kilitleme, Oturumu Kapatma, Hazırda Bekletme ve Geri Dönüşüm Kutusunu Boşaltma dahil olmak üzere kritik sistem görevlerini kısayollarınıza atayın.</li>
-                <li><strong>Hedef Odaklı Pencere:</strong> Metin makrolarınızı belirli bir uygulama penceresine atayın. OtoKeyboard, siz başka bir yerde çalışıyor olsanız bile yazmadan önce pencereyi bulur ve odaklar.</li>
-                <li><strong>Periyodik ve Yinelenen Görevler:</strong> Bir eylemi özel saniye, dakika veya saat aralıklarında otomatik olarak tekrarlanacak şekilde ayarlayın—oyun içi yetenekler veya düzenli raporlama görevleri için mükemmeldir.</li>
-                <li><strong>Ekran Üstü HUD Zamanlayıcı:</strong> Şık, şeffaf bir Ekran Üstü Gösterge (HUD) ile aktif zamanlayıcılarınızı ve zincirleme görevlerinizin ilerlemesini takip edin.</li>
-                <li><strong>Profil Yönetimi (Lisanslı):</strong> Kısayollarınızı 'İş', 'Oyun' veya belirli projeler gibi farklı bağlamlar için ayrı profiller oluşturarak düzenleyin ve aralarında anında geçiş yapın.</li>
-                <li><strong>"İnsan Benzeri" Akıllı Gecikme:</strong> Otomasyonun bir insan tarafından yazılmış gibi daha doğal görünmesini sağlamak için tuş vuruşları arasına rastgele milisaniye gecikmeler ekleyin.</li>
-                <li><strong>Tam Kısayol Kontrolü:</strong> Kısayollarınız üzerinde tam yetkiye sahip olun. Hepsini aynı anda açıp/kapatmak için bir ana anahtar kullanın veya her birini listeden ayrı ayrı yönetin.</li>
-                <li><strong>Sorunsuz Sistem Entegrasyonu:</strong> OtoKeyboard'u başlangıçta otomatik olarak başlatılacak ve sistem tepsisinde gizlice çalışacak şekilde yapılandırın, otomasyonlarınızın her zaman parmaklarınızın ucunda olmasını sağlayın.</li>
-                <li><strong>Otomatik ve Zahmetsiz Güncellemeler:</strong> Uygulama, güncellemeleri otomatik olarak kontrol eder ve yükler, böylece her zaman en son özelliklere ve güvenlik yamalarına zahmetsizce sahip olursunuz.</li>
+                <li><strong>Smart Macro Recorder:</strong> Record your mouse and keyboard movements without any coding knowledge. It learns everything from your clicks to complex form-filling actions and repeats them flawlessly for you.</li>
+                <li><strong>Chained Actions (Multi-Macro):</strong> Combine simple shortcuts to create powerful, multi-step automations. Easily program scenarios like, "Open a program, wait 20 seconds, type login info, and press Enter."</li>
+                <li><strong>Looped & Continuous Tasks:</strong> Repeat your action chains a specific number of times or run them in an infinite loop until stopped, providing seamless, uninterrupted automation.</li>
+                <li><strong>Instant Text Expansion:</strong> Assign short keywords to your frequently used long texts, such as email addresses, code snippets, or messages. The full text appears automatically the moment you type the keyword.</li>
+                <li><strong>Smart Text with Dynamic Variables:</strong> Equip your text with real-time, auto-updating information like <code>{date}</code>, <code>{time}</code>, and <code>{{window_title}}</code> to create dynamic and accurate content every time.</li>
+                <li><strong>Interactive Input Prompts:</strong> Use the <code>{{prompt}}</code> command to have your macros request information from you in a pop-up window during execution and automatically insert it into the text.</li>
+                <li><strong>Advanced Clipboard Management:</strong> Access not just the last item you copied, but up to the last 5 items from your clipboard history with commands like <code>{{clipboard:4}}</code>, drastically speeding up tasks like form filling.</li>
+                <li><strong>Random Data Generation:</strong> Produce random content for testing or varied responses using <code>{{rand_num:1:100}}</code> for numbers or <code>{{rand_text:Yes:No}}</code> to pick from a list.</li>
+                <li><strong>In-Depth Key Control:</strong> Simulate advanced keyboard scenarios like holding a key down with <code>{shift:press}</code> for capitalization and then releasing it with <code>{shift:release}</code>.</li>
+                <li><strong>Timed Keystrokes & Pauses:</strong> Specify how long a key should be held down with commands like <code>{w:press:5:s}</code> or insert precise pauses between automation steps with <code>{sleep:2:s}</code>.</li>
+                <li><strong>Launch Apps, Files, & Websites:</strong> Clear your desktop clutter by launching any program, file, or website instantly with a single shortcut.</li>
+                <li><strong>Expanded System Actions:</strong> Assign critical system tasks to your shortcuts, including Shutdown, Restart, Sleep, Lock, Log Off, Hibernate, and Empty Recycle Bin.</li>
+                <li><strong>Target-Specific Window Focusing:</strong> Assign your text macros to a specific application window. OtoKeyboard finds and focuses the window before typing, even if you're working elsewhere.</li>
+                <li><strong>Periodic & Recurring Tasks:</strong> Set an action to repeat automatically at custom second, minute, or hour intervals—perfect for in-game abilities or regular reporting tasks.</li>
+                <li><strong>On-Screen HUD Timer:</strong> Keep track of your active timers and the progress of your chained tasks with a sleek, transparent on-screen Heads-Up Display (HUD).</li>
+                <li><strong>Profile Management (Licensed):</strong> Organize your shortcuts by creating separate profiles for different contexts like 'Work,' 'Gaming,' or specific projects, and switch between them instantly.</li>
+                <li><strong>"Human-like" Smart Delay:</strong> Add random millisecond delays between keystrokes to make the automation appear more natural, as if typed by a human.</li>
+                <li><strong>Full Shortcut Control:</strong> Enjoy complete authority over your shortcuts. Use a master switch to toggle all of them on/off at once, or manage each one individually from the list.</li>
+                <li><strong>Seamless System Integration:</strong> Configure OtoKeyboard to launch automatically on startup and run discreetly in the system tray, ensuring your automations are always at your fingertips.</li>
+                <li><strong>Automatic & Hassle-Free Updates:</strong> The application automatically checks for and installs updates, ensuring you always have the latest features and security patches without any effort.</li>
             </ul>
-            <label for="modal-otokeyboard" class="modal-kapat-alt">Kapat</label>
+            <label for="modal-otokeyboard" class="modal-kapat-alt">Close</label>
         </div>
     </div>
     <input type="checkbox" id="modal-aptk" class="modal-tetikleyici">
@@ -422,54 +422,54 @@
         <div class="modal-icerik">
             <label for="modal-aptk" class="modal-kapat">&times;</label>
             <h2>Application Toolkit Pro</h2>
-            <p>Windows Uygulama Yönetiminiz Üzerinde Tam Kontrol</p>
-            <p>Yüklü, taşınabilir ve UWP uygulamalarınızı tek bir yerden keşfedin, yönetin ve kaldırın. Application Toolkit Pro ile sisteminize hakim olun.</p>
-            <h3>Sisteminizi Derinlemesine İnceleyin ve Optimize Edin</h3>
-            <p>Application Toolkit Pro, standart kaldırıcıların ötesine geçer. Dosya konumlarından kayıt defteri anahtarlarına, sürüm detaylarından dijital imzalara kadar her ayrıntıyı tek bir ekranda sunar. Bilgisayarınızı daha temiz ve hızlı tutmak için bilinçli kararlar verin.</p>
-            <h3>Merkezi Yönetim</h3>
-            <p>Windows geneline dağılmış tüm klasik (Win32), Mağaza (UWP) ve unutulmuş taşınabilir uygulamalarınızı tek bir temiz arayüzde birleştirir. Kaosa son verin, düzenin tadını çıkarın.</p>
-            <h3>Derinlemesine Analiz ve Kontrol</h3>
-            <p>‘Dosya Konumunu Aç’ ve ‘Kayıt Defterinde Aç’ gibi kısayollarla uygulamalarınızın çekirdeğine anında erişin. Gelişmiş ‘Sessiz Kaldır’ özelliği ile hızlı ve zahmetsizce temizlik yapın. Kontrol tamamen sizde.</p>
-            <h3>Derin Temizlik ve Keşif</h3>
-            <p>Klasörlerinizdeki unutulmuş taşınabilir .exe dosyalarını tarayarak standart araçların asla bulamayacağı gizli bloatware'leri keşfedin. Bilgisayarınızda gerçekte ne olduğunu bilin ve değerli disk alanınızı geri kazanın.</p>
-            <label for="modal-aptk" class="modal-kapat-alt">Kapat</label>
+            <p>Complete Control Over Your Windows Application Management</p>
+            <p>Discover, manage, and uninstall your installed, portable, and UWP apps from a single place. Master your system with Application Toolkit Pro.</p>
+            <h3>Deep Dive & Optimize Your System</h3>
+            <p>Application Toolkit Pro dives deeper than standard uninstallers. It presents every detail on a single screen, from file locations and registry keys to version details and digital signatures. Make informed decisions to keep your computer cleaner and faster.</p>
+            <h3>Centralized Management</h3>
+            <p>It unifies all your classic (Win32), Store (UWP), and forgotten portable applications, scattered across Windows, into a single clean interface. End the chaos, enjoy the order.</p>
+            <h3>In-Depth Analysis & Control</h3>
+            <p>Instantly access the core of your applications with shortcuts like ‘Open File Location’ and ‘Open in Registry’. Clean up quickly and effortlessly with the advanced ‘Silent Uninstall’ feature. The control is all yours.</p>
+            <h3>Deep Cleaning & Discovery</h3>
+            <p>Discover hidden bloatware by scanning for forgotten portable .exe files in your folders—something standard tools can never find. Know what’s truly on your computer and reclaim valuable disk space.</p>
+            <label for="modal-aptk" class="modal-kapat-alt">Close</label>
         </div>
     </div>
     <input type="checkbox" id="modal-hangman" class="modal-tetikleyici">
     <div class="modal-arkaplan" id="hangman">
         <div class="modal-icerik">
             <label for="modal-hangman" class="modal-kapat">&times;</label>
-            <h2>Online Adam Asmaca</h2>
-            <p>“Online Adam Asmaca”ya hoş geldiniz! Arkadaşlarınızla veya diğer oyuncularla keyifli vakit geçirmek için aşağıdaki adımları takip edebilirsiniz.</p>
-            <h3>1. Lobi Ekranı: Oyuna Giriş</h3>
-            <p>Oyuna başlamak için ana ekranda (Lobi) üç seçeneğiniz vardır:</p>
+            <h2>Online Hangman</h2>
+            <p>Welcome to 'Online Hangman'! You can follow the steps below to have a great time with your friends or other players.</p>
+            <h3>1. Lobby Screen: Game Entry</h3>
+            <p>To start the game, you have three options on the main screen (Lobby):</p>
             <ul>
-                <li><strong>Oyuncu Adı:</strong> Eğer siteye kayıtlı bir üye iseniz, kullanıcı adınız otomatik olarak alınır. Değilseniz, bir “Oyuncu Adı” girmelisiniz.</li>
-                <li><strong>Oda Kur:</strong> Kendi kurallarınızla yeni bir oyun odası açmanızı sağlar.</li>
-                <li><strong>Odaya Katıl:</strong> Arkadaşınızın verdiği 6 haneli “Oda Kodu”nu girerek odaya katılabilirsiniz.</li>
-                <li><strong>Herkese Açık Odalar:</strong> Lobi ekranında listelenen, o anda aktif olan ve “Herkese Açık” olarak ayarlanmış odalardan birine tıklayarak katılabilirsiniz.</li>
+                <li><strong>Player Name:</strong> If you are a registered member, your username is taken automatically. If not, you must enter a 'Player Name'.</li>
+                <li><strong>Create Room:</strong> Allows you to open a new game room with your own rules.</li>
+                <li><strong>Join Room:</strong> You can join by entering the 6-digit 'Room Code' given by your friend.</li>
+                <li><strong>Public Rooms:</strong> You can join one of the active rooms set as 'Public' listed on the lobby screen.</li>
             </ul>
-            <h3>2. Oda Kurma</h3>
-            <p>“Oda Kur” butonuna tıkladığınızda, oyunun kurallarını siz belirlersiniz:</p>
+            <h3>2. Creating a Room</h3>
+            <p>When you click the 'Create Room' button, you set the rules of the game:</p>
             <ul>
-                <li><strong>Maksimum Oyuncu:</strong> Odaya kaç kişinin girebileceği (2-12 kişi).</li>
-                <li><strong>Tur Süresi:</strong> Sırası gelen oyuncunun tahmin yapmak için ne kadar süresi olduğu (Süresiz, 10sn, 30sn vb.). (Not: 2 kişilik odalarda bu ayar otomatik olarak “Süresiz” olur).</li>
-                <li><strong>Tur Sayısı:</strong> Oyunun toplam kaç tur süreceği.</li>
-                <li><strong>Otomatik Kelime Modu:</strong> İşaretlerseniz, kelimeleri sistem otomatik olarak belirler. İşaretlemezseniz (Manuel Mod), odadaki bir oyuncu kelimeyi belirler.</li>
-                <li><strong>Herkese Açık Yap:</strong> İşaretlerseniz, odanız lobi ekranındaki “Herkese Açık Odalar” listesinde görünür.</li>
+                <li><strong>Max Players:</strong> How many people can enter the room (2-12 players).</li>
+                <li><strong>Turn Time:</strong> How much time the player whose turn it is has to make a guess (Unlimited, 10s, 30s, etc.). (Note: In 2-player rooms, this setting is automatically 'Unlimited').</li>
+                <li><strong>Number of Rounds:</strong> How many total rounds the game will last.</li>
+                <li><strong>Auto Word Mode:</strong> If checked, the system determines the words automatically. If not checked (Manual Mode), a player in the room determines the word.</li>
+                <li><strong>Make Public:</strong> If checked, your room will appear in the 'Public Rooms' list on the lobby screen.</li>
             </ul>
-            <h3>3. Oyun Lobisi (Bekleme Ekranı)</h3>
-            <p>Odayı kurduktan veya bir odaya katıldıktan sonra bekleme ekranına gelirsiniz. Oda kodunu (“Kopyala” butonuyla) arkadaşlarınıza gönderebilirsiniz. Oda kurucusu (“Kurucu”), odadaki diğer oyuncuları “At” butonu ile odadan çıkarabilir. Tüm oyuncular hazır olduğunda oyun başlar.</p>
-            <h3>4. Oyunu Başlatma</h3>
-            <p><strong>Otomatik Mod:</strong> Kurucu “Oyunu Şimdi Başlat” butonuna basar. Sistem herkes için rastgele bir kelime seçer ve oyun başlar.</p>
-            <p><strong>Manuel Mod:</strong> Kurucu, ilk turda kelimeyi kimin seçeceğine karar verir. Seçilen oyuncu (“Kelimeyi Veren”), bir “Gizli Kelime” ve “Kategori” belirleyip “Oyunu Başlat” butonuna basar. Diğer oyuncular, kelimeyi veren kişinin oyunu başlatmasını bekler.</p>
-            <h3>5. Oyun Ekranı ve Oynanış</h3>
-            <p>Amaç, 6 hata hakkınız (adam asılmadan) dolmadan kelimeyi bulmaktır. Sırası gelen oyuncu klavyeden bir harf seçer. Doğru tahminde puan kazanılır, yanlış tahminde 6 can hakkından biri gider. Manuel modda "İpucu Verme/İsteme" ve "Yargılama" (pas geçme) gibi özellikler varken, otomatik modda ipucu istendiğinde sistem rastgele bir harf açar.</p>
-            <h3>6. Tur ve Oyun Bitişi</h3>
-            <p>Kelime bulunduğunda veya 6 yanlış hak dolduğunda tur biter. Kurucu yeni turu başlatır. Toplam tur sayısına ulaşıldığında oyun biter ve en yüksek puanlı oyuncu kazanır.</p>
-            <h3>7. Diğer Özellikler</h3>
-            <p>Tepkiler ve Sohbet: Oyun sırasında sağ paneldeki emojilere (👍, 😂 vb.) veya “💬” simgesine tıklayarak hızlı mesajlar gönderebilirsiniz. Ses Kontrol: Sağ üstteki 🔊/🔇 simgesi ile oyun seslerini açıp kapatabilirsiniz.</p>
-            <label for="modal-hangman" class="modal-kapat-alt">Kapat</label>
+            <h3>3. Game Lobby (Waiting Screen)</h3>
+            <p>After creating or joining a room, you come to the waiting screen. You can send the room code (with the 'Copy' button) to your friends. The room creator ('Host') can remove other players from the room with the 'Kick' button. The game starts when all players are ready.</p>
+            <h3>4. Starting the Game</h3>
+            <p><strong>Auto Mode:</strong> The host presses the 'Start Game Now' button. The system selects a random word for everyone, and the game begins.</p>
+            <p><strong>Manual Mode:</strong> The host decides who will choose the word in the first round. The selected player ('Word Giver') sets a 'Secret Word' and 'Category' and presses the 'Start Game' button. Other players wait for the word giver to start the game.</p>
+            <h3>5. Game Screen and Gameplay</h3>
+            <p>The goal is to find the word before your 6 mistake rights (before the man is hanged) are up. The player whose turn it is selects a letter from the keyboard. A correct guess earns points; a wrong guess uses one of the 6 lives. In manual mode, there are features like 'Hint Request/Give' and 'Judging' (passing), while in auto mode, the system automatically reveals a random letter when a hint is requested.</p>
+            <h3>6. Round and Game End</h3>
+            <p>The round ends when the word is found or 6 wrong guesses are made. The host starts the next round. When the total number of rounds is reached, the game ends completely, and the player with the highest score wins.</p>
+            <h3>7. Other Features</h3>
+            <p>Reactions and Chat: During the game, you can send quick messages by clicking on the emojis (👍, 😂, etc.) or the '💬' icon on the right panel. Sound Control: You can turn the game sounds on/off with the 🔊/🔇 icon in the top right.</p>
+            <label for="modal-hangman" class="modal-kapat-alt">Close</label>
         </div>
     </div>
     <script>
